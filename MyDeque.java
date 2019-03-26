@@ -3,41 +3,42 @@ public class MyDeque<E>{
 private E[] data;
 private int size, start, end;
 
-MyDeque(){
+public MyDeque(){
 
 }
-MyDeque(int initialCapacity){
+public MyDeque(int initialCapacity){
 
 }
-int size(){
-
-}
-String toString(){
-
+public int size(){
+	return size;
 }
 
-void addFirst(E element){
-
+public String toString(){
+	return "";
 }
 
-void addLast(E element){
+public void addFirst(E element){
 
 }
 
-E removeFirst(){
+public void addLast(E element){
 
 }
 
-E removeLast(){
-
+public E removeFirst(){
+	return data[0];
 }
 
-E getFirst(){
-
+public E removeLast(){
+	return data[0];
 }
 
-E getLast(){
+public E getFirst(){
+	return data[0];
+}
 
+public E getLast(){
+	return data[0];
 }
 
 }
