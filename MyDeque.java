@@ -20,7 +20,17 @@ public int size(){
 }
 
 public String toString(){
-	return "";
+	String output = "";
+	output += start + ", " + end + "\n";
+	for (E x : data) {
+		if (x == null){
+			output += "_, ";
+		}
+		else{
+			output += x.toString() + ", ";
+		}
+	}
+	return output;
 }
 
 public void addFirst(E element){
@@ -53,6 +63,8 @@ public E getLast(){
 
 public static void main(String[] args) {
 	MyDeque<Integer> arr = new MyDeque<Integer>();
+	arr.addFirst(new Integer(5));
+	System.out.println(arr);
 }
 
 
