@@ -24,7 +24,11 @@ public String toString(){
 }
 
 public void addFirst(E element){
-
+	data[start] = element;
+	if (start == 0){
+		start = data.length - 1;
+	}
+	start--;
 }
 
 public void addLast(E element){
@@ -46,5 +50,10 @@ public E getFirst(){
 public E getLast(){
 	return data[0];
 }
+
+public static void main(String[] args) {
+	MyDeque<Integer> arr = new MyDeque<Integer>();
+}
+
 
 }
