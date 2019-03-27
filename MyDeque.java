@@ -7,12 +7,16 @@ private int size, start, end;
 public MyDeque(){
     	data = (E[])new Object[10];
 	size = 10;
+	start = 0;
+	end = 1;
 }
 
 @SuppressWarnings("unchecked")
 public MyDeque(int initalCap){
     	data = (E[])new Object[initalCap];
 	size = initalCap;
+	start = 0;
+	end = 1;
 }
 
 public int size(){
@@ -34,15 +38,19 @@ public String toString(){
 }
 
 public void addFirst(E element){
-	data[start] = element;
 	if (start == 0){
+		data[start] = element;
 		start = data.length;
 	}
 	start--;
 }
 
 public void addLast(E element){
-
+	data[end] = element;
+	if (end == data.length - 1){
+		end = 0;
+	}
+	end++;
 }
 
 public E removeFirst(){
@@ -63,12 +71,11 @@ public E getLast(){
 
 public static void main(String[] args) {
 	MyDeque<Integer> arr = new MyDeque<Integer>();
-	arr.addFirst(new Integer(5));
-	arr.addFirst(new Integer(5));
-	arr.addFirst(new Integer(5));
-	arr.addFirst(new Integer(5));
-	arr.addFirst(new Integer(5));
-	arr.addFirst(new Integer(5));
+	arr.addLast(new Integer(5));
+	arr.addLast(new Integer(4));
+	arr.addLast(new Integer(3));
+	arr.addLast(new Integer(2));
+	arr.addFirst(new Integer(9));
 	System.out.println(arr);
 }
 
