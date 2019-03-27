@@ -36,7 +36,7 @@ public String toString(){
 public void addFirst(E element){
 	data[start] = element;
 	if (start == 0){
-		start = data.length - 1;
+		start = data.length;
 	}
 	start--;
 }
@@ -63,6 +63,11 @@ public E getLast(){
 
 public static void main(String[] args) {
 	MyDeque<Integer> arr = new MyDeque<Integer>();
+	arr.addFirst(new Integer(5));
+	arr.addFirst(new Integer(5));
+	arr.addFirst(new Integer(5));
+	arr.addFirst(new Integer(5));
+	arr.addFirst(new Integer(5));
 	arr.addFirst(new Integer(5));
 	System.out.println(arr);
 }
