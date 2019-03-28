@@ -38,19 +38,29 @@ public String toString(){
 }
 
 public void addFirst(E element){
+	if (start > end){
+		return;
+	}
+	data[start] = element;
 	if (start == 0){
-		data[start] = element;
 		start = data.length;
 	}
 	start--;
+	size++;
 }
 
 public void addLast(E element){
-	data[end] = element;
+	end++;
 	if (end == data.length - 1){
 		end = 0;
 	}
-	end++;
+	data[end] = element;
+	size++;
+}
+
+@SuppressWarnings("unchecked")
+public void resize(){
+	E[] out = (E[])new Object[size * 3];
 }
 
 public E removeFirst(){
@@ -71,11 +81,18 @@ public E getLast(){
 
 public static void main(String[] args) {
 	MyDeque<Integer> arr = new MyDeque<Integer>();
-	arr.addLast(new Integer(5));
-	arr.addLast(new Integer(4));
-	arr.addLast(new Integer(3));
-	arr.addLast(new Integer(2));
-	arr.addFirst(new Integer(9));
+	arr.addFirst(new Integer(5));
+	arr.addFirst(new Integer(4));
+	arr.addFirst(new Integer(3));
+	arr.addFirst(new Integer(2));
+	arr.addFirst(new Integer(5));
+	arr.addFirst(new Integer(4));
+	arr.addFirst(new Integer(3));
+	arr.addFirst(new Integer(2));
+	arr.addFirst(new Integer(3));
+	arr.addFirst(new Integer(2));
+
+	// arr.addFirst(new Integer(420));
 	System.out.println(arr);
 }
 
