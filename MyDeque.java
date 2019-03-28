@@ -25,6 +25,14 @@ public int size(){
 	return size;
 }
 
+public boolean isFull(){
+	if ((start == 0 && end == size-1)||
+            (start == end+1)){
+		return false;
+	}
+	return true;
+}
+
 public String toString(){
 	String output = "";
 	output += start + ", " + end + "\n";
