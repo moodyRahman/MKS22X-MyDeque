@@ -1,22 +1,24 @@
 public class MyDeque<E>{
 
 private E[] data;
-private int size, start, end;
+private int size, start, end, capacity;
 
 @SuppressWarnings("unchecked")
 public MyDeque(){
     	data = (E[])new Object[10];
 	size = 10;
-	start = 0;
-	end = 1;
+	start = -1;
+	end = 0;
+	capacity = data.length;
 }
 
 @SuppressWarnings("unchecked")
 public MyDeque(int initalCap){
     	data = (E[])new Object[initalCap];
 	size = initalCap;
-	start = 0;
-	end = 1;
+	start = -1;
+	end = 0;
+	capacity = data.length;
 }
 
 public int size(){
@@ -97,7 +99,7 @@ public static void main(String[] args) {
 	arr.addFirst(new Integer(2));
 
 	// arr.addFirst(new Integer(420));
-	arr.resize();
+	// arr.resize();
 	System.out.println(arr);
 }
 
