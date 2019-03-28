@@ -61,6 +61,10 @@ public void addLast(E element){
 @SuppressWarnings("unchecked")
 public void resize(){
 	E[] out = (E[])new Object[size * 3];
+	for (int x = 0; x < data.length; x++) {
+		out[x] = data[x];
+	}
+	data = out;
 }
 
 public E removeFirst(){
@@ -93,6 +97,7 @@ public static void main(String[] args) {
 	arr.addFirst(new Integer(2));
 
 	// arr.addFirst(new Integer(420));
+	arr.resize();
 	System.out.println(arr);
 }
 
