@@ -25,7 +25,7 @@ public int size(){
 	return size;
 }
 
-public boolean isFull(){
+public boolean isFullbeta(){
 	if ((start == 0 && end == size-1)||
             (start == end+1)){
 		return false;
