@@ -69,16 +69,18 @@ public void addLast(E element){
 }
 
 @SuppressWarnings("unchecked")
-private void resize(int capacity){
-        E[] out = (E[])new Object[capacity];
+private void resize(){
+  	E[] temp = (E[]) new Object[size() * 2 + 1];
+  	int idx = start;
+  	for (int x = 0; x < size; x++){
+    		temp[x] = data[idx % data.length];
+    		idx++;
+  	}
+  	data = temp;
+  	start = 0;
+  	end = size - 1;
+}
 
-        for (int i = 0; i < size; i++)
-            out[i] = data[(start + i) % data.length];
-
-        data = out;
-        start = 0;
-        end = size;
-    }
 
 public E removeFirst(){
 	return data[0];
