@@ -8,7 +8,7 @@ public MyDeque(){
     	data = (E[])new Object[10];
 	size = 10;
 	start = 0;
-	end = 0;
+	end = -1;
 	capacity = data.length;
 }
 
@@ -94,6 +94,14 @@ public E getFirst(){
 
 public E getLast(){
 	return data[0];
+}
+
+public boolean isFull(){
+        boolean status = false;
+        if (size == data.length){
+		status = true;
+        }
+        return status;
 }
 
 public static void main(String[] args) {
