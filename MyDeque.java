@@ -7,7 +7,7 @@ private int size, start, end, capacity;
 public MyDeque(){
     	data = (E[])new Object[10];
 	size = 10;
-	start = -1;
+	start = 0;
 	end = 0;
 	capacity = data.length;
 }
@@ -69,13 +69,16 @@ public void addLast(E element){
 }
 
 @SuppressWarnings("unchecked")
-public void resize(){
-	E[] out = (E[])new Object[size * 3];
-	for (int x = 0; x < data.length; x++) {
-		out[x] = data[x];
-	}
-	data = out;
-}
+private void resize(int capacity){
+        E[] out = (E[])new Object[capacity];
+
+        for (int i = 0; i < size; i++)
+            out[i] = data[(start + i) % data.length];
+
+        data = out;
+        start = 0;
+        end = size;
+    }
 
 public E removeFirst(){
 	return data[0];
