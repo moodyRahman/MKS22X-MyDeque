@@ -66,12 +66,23 @@ public void addFirst(E element){
 }
 
 public void addLast(E element){
-	end++;
-	if (end == data.length - 1){
-		end = 0;
+	if (element == null){
+		throw new NullPointerException("Cannot add null");
 	}
-	data[end] = element;
-	size++;
+
+    	if(size == data.length) {
+		resize();
+	}
+    	if(size != 0){
+      		if(end == data.length) {
+			end = 0;
+		}
+      		else {
+			end++;
+		}
+    	}
+    	data[end] = element;
+    	size++;
 }
 
 @SuppressWarnings("unchecked")
