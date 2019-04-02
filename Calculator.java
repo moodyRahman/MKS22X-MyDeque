@@ -6,17 +6,41 @@ public static double eval(String s){
 	MyDeque<String> stack = new MyDeque<String>();
 
 	for (String token : tokens) {
-
+		if (isNumeric(token)){
+			stack.addFirst(token);
+		}
+		else{
+			double no1 = Double.parseDouble(stack.removeFirst());
+			double no2 = Double.parseDouble(stack.removeFirst());
+			if (token.equals("+")){
+				stack.addFirst(Double.toString(no1 + no2));
+			}
+			if (token.equals("-")){
+				stack.addFirst(Double.toString(no1 - no2));
+			}
+			if (token.equals("/")){
+				stack.addFirst(Double.toString(no1 / no2));
+			}
+			if (token.equals("*")){
+				stack.addFirst(Double.toString(no1 * no2));
+			}
+		}
 	}
 	return 5;
 }
 
+public static boolean isNumeric(String strNum) {
+    	try {
+        	double d = Double.parseDouble(strNum);
+    	} catch (NumberFormatException | NullPointerException nfe) {
+        	return false;
+	}
+    	return true;
+}
+
 
 public static void main(String[] args) {
-	// Calculator.eval("5 + 6 - 78");
-	System.out.println(isNumeric("5"));
-	System.out.println(isNumeric("45"));
-	System.out.println(isNumeric("ff"));
+	System.out.println(eval("4 5 5 + *"));
 }
 
 
