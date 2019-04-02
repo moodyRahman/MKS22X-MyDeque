@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class MyDeque<E>{
 
 private E[] data;
@@ -99,10 +101,6 @@ private void resize(){
 }
 
 
-public E removeFirst(){
-	return data[0];
-}
-
 public E removeLast(){
 	return data[0];
 }
@@ -123,6 +121,21 @@ public boolean isFull(){
         return status;
 }
 
+public E removeFirst(){
+    	if (size == 0) {
+		throw new NoSuchElementException("empty");
+	}
+
+    	E out = data[start];
+    	data[start] = null;
+    	if(size != 1){
+      		if(start == data.length - 1) start = 0;
+		else start++;
+	}
+    	size--;
+    	return out;
+}
+
 public static void main(String[] args) {
 	MyDeque<Integer> arr = new MyDeque<Integer>();
 	arr.addFirst(new Integer(5));
@@ -135,6 +148,19 @@ public static void main(String[] args) {
 	arr.addFirst(new Integer(2));
 	arr.addFirst(new Integer(3));
 	arr.addFirst(new Integer(2));
+	arr.addFirst(new Integer(2));
+	arr.addFirst(new Integer(2));
+	arr.addFirst(new Integer(2));
+
+	arr.removeFirst();
+	arr.removeFirst();
+	arr.removeFirst();
+	arr.removeFirst();
+	arr.removeFirst();
+	arr.removeFirst();arr.removeFirst();
+	arr.removeFirst();
+	arr.removeFirst();
+
 
 	// arr.addFirst(new Integer(420));
 	// arr.resize();
