@@ -26,7 +26,7 @@ public static double eval(String s){
 			}
 		}
 	}
-	return 5;
+	return Double.parseDouble(stack.removeFirst());
 }
 
 public static boolean isNumeric(String strNum) {
